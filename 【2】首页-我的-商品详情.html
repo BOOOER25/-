@@ -80,6 +80,7 @@
         .header-top {
             padding: 15px 0;
             border-bottom: 1px solid #eee;
+            background-color: var(--white);
         }
 
         .header-top-content {
@@ -113,6 +114,8 @@
             gap: 5px;
             font-size: 14px;
             color: var(--mid-color);
+            background: none;
+            border: none;
         }
 
         .location-selector i {
@@ -137,6 +140,8 @@
             font-size: 18px;
             font-weight: 700;
             color: var(--dark-color);
+            background: none;
+            border: none;
         }
 
         .language-selector {
@@ -165,6 +170,195 @@
             align-items: center;
             gap: 10px;
             font-weight: 500;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .catalog-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+        
+        /* Catalog Menu Styles */
+        .catalog-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 300px;
+            background-color: var(--white);
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none;
+            padding: 15px 0;
+            margin-top: 10px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .catalog-btn:hover .catalog-menu {
+            display: block;
+        }
+        
+        .catalog-categories {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .catalog-category {
+            position: relative;
+        }
+        
+        .catalog-category-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: var(--text-color);
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .catalog-category-link:hover {
+            background-color: var(--light-color);
+            border-left-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .catalog-category-icon {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            color: var(--mid-color);
+        }
+        
+        .catalog-subcategory {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            width: 700px;
+            min-height: 400px;
+            background-color: var(--white);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 0 5px 5px 0;
+            display: none;
+            z-index: 1001;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .catalog-category:hover .catalog-subcategory {
+            display: flex;
+        }
+        
+        .subcategory-col {
+            flex: 1;
+            padding: 0 15px;
+        }
+        
+        .subcategory-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--light-color);
+        }
+        
+        .subcategory-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .subcategory-link {
+            font-size: 13px;
+            color: var(--text-light);
+            transition: all 0.2s ease;
+        }
+        
+        .subcategory-link:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        .subcategory-featured {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--light-color);
+        }
+        
+        .featured-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .featured-products {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .featured-product {
+            width: 120px;
+            text-align: center;
+        }
+        
+        .featured-product-img {
+            height: 80px;
+            width: 80px;
+            object-fit: contain;
+            margin-bottom: 8px;
+        }
+        
+        .featured-product-title {
+            font-size: 12px;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        
+        .featured-product-price {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-top: 5px;
+        }
+
+        /* 面包屑导航样式 */
+        .breadcrumb-container {
+            padding: 15px 0;
+            background-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .breadcrumb-item {
+            font-size: 14px;
+            color: var(--mid-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb-item:not(:last-child)::after {
+            content: "/";
+            margin-left: 8px;
+            color: var(--light-text);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
         }
 
         .search-bar {
@@ -243,12 +437,14 @@
 
         /* Main Content Styles */
         main {
-            padding: 40px 0;
+            padding-top: 20px;
+            padding-bottom: 40px;
         }
 
         /* Banner */
         .banner {
             margin-bottom: 60px;
+            position: relative;
         }
 
         .banner-image {
@@ -257,6 +453,88 @@
             overflow: hidden;
             height: 500px;
             background-color: var(--light-color);
+        }
+        
+        /* 轮播图样式 */
+        .banner-slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .banner-slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+        
+        .banner-slide {
+            flex: 0 0 100%;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .banner-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .banner-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .banner-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .banner-dot.active {
+            background-color: var(--white);
+            transform: scale(1.2);
+        }
+        
+        .banner-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .banner-nav:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: var(--dark-color);
+        }
+        
+        .banner-prev {
+            left: 20px;
+        }
+        
+        .banner-next {
+            right: 20px;
         }
 
         .banner-image img {
@@ -271,19 +549,22 @@
             left: 60px;
             transform: translateY(-50%);
             max-width: 500px;
+            z-index: 5;
+            color: var(--white);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         .banner-text h2 {
             font-size: 42px;
             font-weight: 600;
             margin-bottom: 20px;
-            color: var(--dark-color);
+            color: var(--white);
         }
 
         .banner-text p {
             font-size: 18px;
             margin-bottom: 30px;
-            color: var(--mid-color);
+            color: var(--white);
         }
 
         .btn-primary {
@@ -308,32 +589,166 @@
         .category-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 15px;
+            margin-bottom: 30px;
         }
-
+        
         .category-card {
             background-color: var(--white);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 180px;
+            position: relative;
         }
 
         .category-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-card:hover .category-img-container img {
+            transform: scale(1.05);
+        }
+        
+        .category-card:hover::after {
+            opacity: 1;
+        }
+        
+        .category-card::after {
+            content: "查看分类";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .category-icon {
-            font-size: 36px;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        .category-img-container {
+            position: relative;
+            height: 120px;
+            background-color: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .category-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .category-content {
+            padding: 15px;
+            padding-top: 5px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .category-title {
             font-size: 16px;
             font-weight: 600;
             color: var(--dark-color);
+            text-align: center;
+        }
+        
+        /* 移除品牌名称和浏览按钮相关样式 */
+        .category-subtitle, .category-description, .category-link, .category-icon {
+            display: none;
+        }
+        
+        .category-description {
+            display: none;
+        }
+        
+        .category-link {
+            margin-top: auto;
+        }
+        
+        .category-link a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .category-link a:hover {
+            text-decoration: underline;
+        }
+        
+        /* 新的商城优势样式 */
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+            background-color: var(--light-color);
+            border-radius: 15px;
+            padding: 25px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .feature-icon {
+            min-width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 87, 34, 0.1);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover .feature-icon {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .feature-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .feature-description {
+            font-size: 13px;
+            color: var(--mid-color);
         }
 
         /* Product Sections */
@@ -368,26 +783,34 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
 
         .product-card {
             background-color: var(--white);
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-            height: 100%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.08);
         }
 
         .product-image {
             position: relative;
-            height: 240px;
+            height: 200px;
+            background-color: #f5f5f5;
             overflow: hidden;
         }
 
@@ -395,60 +818,162 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
+            transition: all 0.5s ease;
         }
 
         .tag-container {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 15px;
+            left: 15px;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 8px;
         }
 
         .product-tag {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 3px 8px;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 8px;
             border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
+            display: inline-block;
+            text-transform: uppercase;
         }
 
         .product-tag.new {
-            background-color: var(--primary-color);
+            background-color: var(--accent-color);
+            color: var(--white);
         }
 
         .product-tag.sale {
-            background-color: var(--accent-color);
+            background-color: #4CAF50;
+            color: var(--white);
+        }
+        
+        .product-tag.hot {
+            background-color: #F44336;
+            color: var(--white);
+        }
+        
+        .product-tag.discount {
+            background-color: #9C27B0;
+            color: var(--white);
         }
 
         .product-info {
-            padding: 20px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            position: relative;
         }
 
         .product-category {
-            color: var(--light-text);
             font-size: 12px;
-            margin-bottom: 8px;
+            color: var(--mid-color);
+            margin-bottom: 5px;
         }
 
         .product-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 10px;
             color: var(--dark-color);
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+            min-height: 44px;
         }
 
         .product-price {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--accent-color);
+            margin-top: auto;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+        
+        .product-price .original-price {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--mid-color);
+            text-decoration: line-through;
+        }
+        
+        .product-price .discount-percent {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4CAF50;
+        }
+        
+        .product-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 8px;
+            margin-bottom: 5px;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .product-rating .stars {
+            color: #FFC107;
+            font-size: 14px;
+        }
+        
+        .product-rating .count {
+            font-size: 12px;
+            color: var(--mid-color);
+        }
+        
+        .product-sold {
+            font-size: 12px;
+            color: var(--mid-color);
+        }
+        
+        .quick-actions {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+        
+        .product-card:hover .quick-actions {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .quick-action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: white;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .quick-action-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
         }
 
         /* Enhanced product card for recommendations */
@@ -1479,6 +2004,138 @@
         .product-detail-favorite i {
             font-size: 16px;
         }
+
+        /* You May Also Like - Data Stream Style */
+        .data-stream-section {
+            margin-bottom: 60px;
+        }
+        
+        .stream-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .stream-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .stream-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .load-more {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .load-more-btn {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .load-more-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--accent-color);
+            border-radius: 50%;
+            vertical-align: middle;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Section with recommendation text */
+        .recommendation-section {
+            margin-bottom: 60px;
+        }
+        
+        .recommendation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .title-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .recommendation-subtitle {
+            font-size: 14px;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .recommendation-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        /* User Highlight Styles */
+        .user-highlight {
+            margin: 8px 0;
+            padding: 8px 12px;
+            background-color: rgba(255, 87, 34, 0.05);
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--text-color);
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        .user-highlight i {
+            color: var(--accent-color);
+            font-size: 12px;
+            opacity: 0.6;
+            margin-top: 3px;
+        }
+
+        .highlight-text {
+            flex: 1;
+            font-weight: 400;
+        }
+
+        .highlight-user {
+            color: var(--mid-color);
+            font-size: 12px;
+            margin-left: 4px;
+            font-weight: normal;
+        }
+
+        .product-card:hover .user-highlight {
+            background-color: rgba(255, 87, 34, 0.08);
+        }
     </style>
 </head>
 <body>
@@ -1492,18 +2149,10 @@
                         COMFO<span>R</span>T
                     </div>
                     <div class="header-top-right">
-                        <div class="location-selector">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Dnepropetrovk, Ukraine</span>
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </div>
                         <div class="header-nav-links">
-                            <a href="#" class="header-nav-link">HOT🔥</a>
-                            <a href="#" class="header-nav-link">Discount</a>
                             <a href="#" class="header-nav-link">Reviews</a>
                             <a href="#" class="header-nav-link">Contact</a>
                         </div>
-                        <div class="phone-number">095 444 44 44</div>
                         <div class="language-selector">
                             <span>ENG</span>
                             <i class="fa-solid fa-chevron-down"></i>
@@ -1518,8 +2167,332 @@
             <div class="container">
                 <div class="header-bottom-content">
                     <div class="catalog-btn">
-                        <i class="fa-solid fa-grid"></i>
-                        <span>Catalog</span>
+                        <span>商品分类</span>
+                        <div class="catalog-menu">
+                            <div class="catalog-categories">
+                                <div class="catalog-category">
+                                    <a href="#" class="catalog-category-link">
+                                        <div>
+                                            <i class="fa-solid fa-mobile-screen catalog-category-icon"></i>
+                                            手机
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <div class="catalog-subcategory">
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">手机品牌</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">Apple</a>
+                                                <a href="#" class="subcategory-link">Samsung</a>
+                                                <a href="#" class="subcategory-link">Huawei</a>
+                                                <a href="#" class="subcategory-link">Xiaomi</a>
+                                                <a href="#" class="subcategory-link">OPPO</a>
+                                                <a href="#" class="subcategory-link">vivo</a>
+                                                <a href="#" class="subcategory-link">Honor</a>
+                                                <a href="#" class="subcategory-link">更多品牌</a>
+                                            </div>
+                                        </div>
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">价格区间</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">2000元以下</a>
+                                                <a href="#" class="subcategory-link">2000-3000元</a>
+                                                <a href="#" class="subcategory-link">3000-4000元</a>
+                                                <a href="#" class="subcategory-link">4000-5000元</a>
+                                                <a href="#" class="subcategory-link">5000元以上</a>
+                                            </div>
+                                            <h4 class="subcategory-title">系列</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">iPhone系列</a>
+                                                <a href="#" class="subcategory-link">Galaxy S系列</a>
+                                                <a href="#" class="subcategory-link">小米数字系列</a>
+                                                <a href="#" class="subcategory-link">OPPO Reno系列</a>
+                                            </div>
+                                        </div>
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">热门功能</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">5G手机</a>
+                                                <a href="#" class="subcategory-link">快充手机</a>
+                                                <a href="#" class="subcategory-link">大屏手机</a>
+                                                <a href="#" class="subcategory-link">拍照手机</a>
+                                                <a href="#" class="subcategory-link">游戏手机</a>
+                                                <a href="#" class="subcategory-link">长续航手机</a>
+                                            </div>
+                                            <div class="subcategory-featured">
+                                                <h5 class="featured-title">热销机型</h5>
+                                                <div class="featured-products">
+                                                    <div class="featured-product">
+                                                        <img src="https://images.unsplash.com/photo-1591815302525-756a9bcc3425?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTR8ZW58MHx8MHx8fDA%3D" class="featured-product-img">
+                                                        <div class="featured-product-title">iPhone 14 Pro Max</div>
+                                                        <div class="featured-product-price">¥7999</div>
+                                                    </div>
+                                                    <div class="featured-product">
+                                                        <img src="https://images.unsplash.com/photo-1673831792426-8cedbe848c34?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2FsYXh5JTIwczIzfGVufDB8fDB8fHww" class="featured-product-img">
+                                                        <div class="featured-product-title">Galaxy S23 Ultra</div>
+                                                        <div class="featured-product-price">¥6999</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="catalog-category">
+                                    <a href="#" class="catalog-category-link">
+                                        <div>
+                                            <i class="fa-solid fa-laptop catalog-category-icon"></i>
+                                            电脑
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <div class="catalog-subcategory">
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">笔记本</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">MacBook</a>
+                                                <a href="#" class="subcategory-link">ThinkPad</a>
+                                                <a href="#" class="subcategory-link">戴尔 Dell</a>
+                                                <a href="#" class="subcategory-link">惠普 HP</a>
+                                                <a href="#" class="subcategory-link">华硕 ASUS</a>
+                                                <a href="#" class="subcategory-link">联想 Lenovo</a>
+                                                <a href="#" class="subcategory-link">更多品牌</a>
+                                            </div>
+                                        </div>
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">台式机</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">DIY组装电脑</a>
+                                                <a href="#" class="subcategory-link">一体机</a>
+                                                <a href="#" class="subcategory-link">Mac</a>
+                                                <a href="#" class="subcategory-link">商用台式机</a>
+                                            </div>
+                                            <h4 class="subcategory-title">电脑配件</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">显示器</a>
+                                                <a href="#" class="subcategory-link">CPU</a>
+                                                <a href="#" class="subcategory-link">显卡</a>
+                                                <a href="#" class="subcategory-link">内存条</a>
+                                            </div>
+                                        </div>
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">电脑外设</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">鼠标</a>
+                                                <a href="#" class="subcategory-link">键盘</a>
+                                                <a href="#" class="subcategory-link">耳机</a>
+                                                <a href="#" class="subcategory-link">摄像头</a>
+                                                <a href="#" class="subcategory-link">打印机</a>
+                                                <a href="#" class="subcategory-link">扩展坞</a>
+                                            </div>
+                                            <div class="subcategory-featured">
+                                                <h5 class="featured-title">特惠推荐</h5>
+                                                <div class="featured-products">
+                                                    <div class="featured-product">
+                                                        <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFjYm9va3xlbnwwfHwwfHx8MA%3D%3D" class="featured-product-img">
+                                                        <div class="featured-product-title">MacBook Air M2</div>
+                                                        <div class="featured-product-price">¥7999</div>
+                                                    </div>
+                                                    <div class="featured-product">
+                                                        <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFwdG9wfGVufDB8fDB8fHww" class="featured-product-img">
+                                                        <div class="featured-product-title">ThinkPad X1 Carbon</div>
+                                                        <div class="featured-product-price">¥8999</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="catalog-category">
+                                    <a href="#" class="catalog-category-link">
+                                        <div>
+                                            <i class="fa-solid fa-tablet-screen-button catalog-category-icon"></i>
+                                            平板电脑
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <div class="catalog-subcategory">
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">平板品牌</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">iPad</a>
+                                                <a href="#" class="subcategory-link">华为平板</a>
+                                                <a href="#" class="subcategory-link">三星平板</a>
+                                                <a href="#" class="subcategory-link">小米平板</a>
+                                                <a href="#" class="subcategory-link">荣耀平板</a>
+                                                <a href="#" class="subcategory-link">联想平板</a>
+                                            </div>
+                                        </div>
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">iPad系列</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">iPad Pro</a>
+                                                <a href="#" class="subcategory-link">iPad Air</a>
+                                                <a href="#" class="subcategory-link">iPad</a>
+                                                <a href="#" class="subcategory-link">iPad mini</a>
+                                            </div>
+                                            <h4 class="subcategory-title">平板配件</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">平板保护套</a>
+                                                <a href="#" class="subcategory-link">平板贴膜</a>
+                                                <a href="#" class="subcategory-link">触控笔</a>
+                                                <a href="#" class="subcategory-link">键盘</a>
+                                            </div>
+                                        </div>
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">特色平板</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">学生平板</a>
+                                                <a href="#" class="subcategory-link">办公平板</a>
+                                                <a href="#" class="subcategory-link">绘画平板</a>
+                                                <a href="#" class="subcategory-link">阅读平板</a>
+                                                <a href="#" class="subcategory-link">游戏平板</a>
+                                            </div>
+                                            <div class="subcategory-featured">
+                                                <h5 class="featured-title">热门平板</h5>
+                                                <div class="featured-products">
+                                                    <div class="featured-product">
+                                                        <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aXBhZHxlbnwwfHwwfHx8MA%3D%3D" class="featured-product-img">
+                                                        <div class="featured-product-title">iPad Pro 12.9</div>
+                                                        <div class="featured-product-price">¥6999</div>
+                                                    </div>
+                                                    <div class="featured-product">
+                                                        <img src="https://img.pngio.com/galaxy-tab-s3-and-galaxy-book-take-center-stage-at-mwc-2017-samsung-tablet-png-736_460.png" class="featured-product-img">
+                                                        <div class="featured-product-title">三星Galaxy Tab S9</div>
+                                                        <div class="featured-product-price">¥5999</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="catalog-category">
+                                    <a href="#" class="catalog-category-link">
+                                        <div>
+                                            <i class="fa-solid fa-headphones catalog-category-icon"></i>
+                                            耳机音箱
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                    <div class="catalog-subcategory">
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">耳机</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">真无线耳机</a>
+                                                <a href="#" class="subcategory-link">头戴式耳机</a>
+                                                <a href="#" class="subcategory-link">有线耳机</a>
+                                                <a href="#" class="subcategory-link">颈挂式耳机</a>
+                                                <a href="#" class="subcategory-link">游戏耳机</a>
+                                                <a href="#" class="subcategory-link">运动耳机</a>
+                                            </div>
+                                        </div>
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">音箱</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">蓝牙音箱</a>
+                                                <a href="#" class="subcategory-link">智能音箱</a>
+                                                <a href="#" class="subcategory-link">电脑音箱</a>
+                                                <a href="#" class="subcategory-link">桌面音箱</a>
+                                                <a href="#" class="subcategory-link">户外音箱</a>
+                                            </div>
+                                            <h4 class="subcategory-title">品牌</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">Bose</a>
+                                                <a href="#" class="subcategory-link">Sony</a>
+                                                <a href="#" class="subcategory-link">Apple</a>
+                                                <a href="#" class="subcategory-link">JBL</a>
+                                            </div>
+                                        </div>
+                                        <div class="subcategory-col">
+                                            <h4 class="subcategory-title">功能特点</h4>
+                                            <div class="subcategory-links">
+                                                <a href="#" class="subcategory-link">降噪耳机</a>
+                                                <a href="#" class="subcategory-link">HiFi耳机</a>
+                                                <a href="#" class="subcategory-link">防水耳机</a>
+                                                <a href="#" class="subcategory-link">长续航耳机</a>
+                                            </div>
+                                            <div class="subcategory-featured">
+                                                <h5 class="featured-title">品质音频</h5>
+                                                <div class="featured-products">
+                                                    <div class="featured-product">
+                                                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="featured-product-img">
+                                                        <div class="featured-product-title">高端无线降噪耳机</div>
+                                                        <div class="featured-product-price">¥899</div>
+                                                    </div>
+                                                    <div class="featured-product">
+                                                        <img src="https://images.unsplash.com/photo-1589003077984-894e133dabab?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hcnQlMjBzcGVha2VyfGVufDB8fDB8fHww" class="featured-product-img">
+                                                        <div class="featured-product-title">智能家庭音箱</div>
+                                                        <div class="featured-product-price">¥499</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="catalog-category">
+                                    <a href="#" class="catalog-category-link">
+                                        <div>
+                                            <i class="fa-solid fa-camera catalog-category-icon"></i>
+                                            摄影摄像
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                                
+                                <div class="catalog-category">
+                                    <a href="#" class="catalog-category-link">
+                                        <div>
+                                            <i class="fa-solid fa-gamepad catalog-category-icon"></i>
+                                            游戏外设
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                                
+                                <div class="catalog-category">
+                                    <a href="#" class="catalog-category-link">
+                                        <div>
+                                            <i class="fa-solid fa-microchip catalog-category-icon"></i>
+                                            电脑配件
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                                
+                                <div class="catalog-category">
+                                    <a href="#" class="catalog-category-link">
+                                        <div>
+                                            <i class="fa-solid fa-tv catalog-category-icon"></i>
+                                            智能电视
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                                
+                                <div class="catalog-category">
+                                    <a href="#" class="catalog-category-link">
+                                        <div>
+                                            <i class="fa-solid fa-house catalog-category-icon"></i>
+                                            智能家居
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                                
+                                <div class="catalog-category">
+                                    <a href="#" class="catalog-category-link">
+                                        <div>
+                                            <i class="fa-solid fa-ellipsis catalog-category-icon"></i>
+                                            更多分类
+                                        </div>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="search-bar">
                         <input type="text" placeholder="Search...">
@@ -1545,69 +2518,390 @@
 
     <main>
         <div class="container">
+            <!-- 面包屑导航 -->
+            <div class="breadcrumb-container" id="breadcrumb">
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item"><a href="javascript:void(0);" onclick="showHomepage();">首页</a></div>
+                    <div class="breadcrumb-item"><a href="javascript:void(0);" onclick="showCategoryPage('电子产品');">电子产品</a></div>
+                    <div class="breadcrumb-item active">智能手机</div>
+                </div>
+            </div>
+            
             <!-- Homepage Content -->
             <div id="homepage" class="homepage">
                 <!-- Banner -->
                 <section class="banner">
-                    <div class="banner-image">
-                        <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1401&q=80" alt="电子产品促销活动">
-                        <div class="banner-text">
-                            <h2>新一代智能科技</h2>
-                            <p>探索全新的电子产品系列，提升您的数字生活体验</p>
-                            <a href="#" class="btn-primary">立即探索</a>
+                    <div class="banner-slider">
+                        <div class="banner-slides">
+                            <!-- 轮播图片1 -->
+                            <div class="banner-slide">
+                                <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1401&q=80" alt="电子产品促销活动">
+                                <div class="banner-text">
+                                    <h2>新一代智能科技</h2>
+                                    <p>探索全新的电子产品系列，提升您的数字生活体验</p>
+                                    <a href="#" class="btn-primary">立即探索</a>
+                                </div>
+                            </div>
+                            
+                            <!-- 轮播图片2 -->
+                            <div class="banner-slide">
+                                <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1420&q=80" alt="智能家居解决方案">
+                                <div class="banner-text">
+                                    <h2>智能家居新时代</h2>
+                                    <p>让科技为您打造舒适便捷的智能生活空间</p>
+                                    <a href="#" class="btn-primary">了解更多</a>
+                                </div>
+                            </div>
+                            
+                            <!-- 轮播图片3 -->
+                            <div class="banner-slide">
+                                <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="年度会员优惠">
+                                <div class="banner-text">
+                                    <h2>限时优惠活动</h2>
+                                    <p>会员专享折扣，精选商品低至5折起</p>
+                                    <a href="#" class="btn-primary">立即抢购</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 轮播导航按钮 -->
+                        <div class="banner-nav banner-prev">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </div>
+                        <div class="banner-nav banner-next">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        
+                        <!-- 轮播指示点 -->
+                        <div class="banner-dots">
+                            <div class="banner-dot active"></div>
+                            <div class="banner-dot"></div>
+                            <div class="banner-dot"></div>
                         </div>
                     </div>
                 </section>
 
                 <!-- Categories Section -->
                 <section class="category-section">
+                    <div class="section-header">
+                        <h2 class="section-title">热门品类</h2>
+                    </div>
                     <div class="category-grid">
                         <div class="category-card">
+                            <div class="category-img-container">
+                                <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1329&q=80" alt="智能手机" class="category-img">
+                            </div>
                             <div class="category-icon">
                                 <i class="fa-solid fa-mobile-screen"></i>
                             </div>
-                            <div class="category-title">手机</div>
+                            <div class="category-content">
+                                <div class="category-title">智能手机</div>
+                                <div class="category-subtitle">iPhone, Samsung, Xiaomi</div>
+                                <div class="category-description">
+                                    多种价位、性能、外观的智能手机，满足您的工作、娱乐等多方面需求。
+                                </div>
+                                <div class="category-link">
+                                    <a href="#" onclick="showCategoryPage('智能手机')">浏览产品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
                         </div>
                         <div class="category-card">
+                            <div class="category-img-container">
+                                <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="笔记本电脑" class="category-img">
+                            </div>
                             <div class="category-icon">
                                 <i class="fa-solid fa-laptop"></i>
                             </div>
-                            <div class="category-title">电脑</div>
+                            <div class="category-content">
+                                <div class="category-title">笔记本电脑</div>
+                                <div class="category-subtitle">MacBook, ThinkPad, Dell</div>
+                                <div class="category-description">
+                                    轻薄便携，性能强大，专为移动办公与创意工作设计的各类笔记本电脑产品。
+                                </div>
+                                <div class="category-link">
+                                    <a href="#" onclick="showCategoryPage('笔记本电脑')">浏览产品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
                         </div>
                         <div class="category-card">
+                            <div class="category-img-container">
+                                <img src="https://images.unsplash.com/photo-1628815113969-0487917fc6a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="平板电脑" class="category-img">
+                            </div>
                             <div class="category-icon">
                                 <i class="fa-solid fa-tablet-screen-button"></i>
                             </div>
-                            <div class="category-title">平板电脑</div>
+                            <div class="category-content">
+                                <div class="category-title">平板电脑</div>
+                                <div class="category-subtitle">iPad, Galaxy Tab, Huawei</div>
+                                <div class="category-description">
+                                    大屏触控体验，轻松阅读、学习、绘画与娱乐，满足移动生活需求。
+                                </div>
+                                <div class="category-link">
+                                    <a href="#" onclick="showCategoryPage('平板电脑')">浏览产品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
                         </div>
                         <div class="category-card">
-                            <div class="category-icon">
-                                <i class="fa-solid fa-ellipsis"></i>
+                            <div class="category-img-container">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="耳机音箱" class="category-img">
                             </div>
-                            <div class="category-title">更多</div>
+                            <div class="category-icon">
+                                <i class="fa-solid fa-headphones"></i>
+                            </div>
+                            <div class="category-content">
+                                <div class="category-title">耳机音箱</div>
+                                <div class="category-subtitle">Bose, Sony, Apple</div>
+                                <div class="category-description">
+                                    高品质音频设备，包括降噪耳机、Hi-Fi音箱，提供极致听觉体验。
+                                </div>
+                                <div class="category-link">
+                                    <a href="#" onclick="showCategoryPage('耳机音箱')">浏览产品 <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 商城优势 -->
+                    <div class="features-section">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3 class="feature-title">次日达</h3>
+                                <p class="feature-description">上午下单次日送达</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3 class="feature-title">正品保障</h3>
+                                <p class="feature-description">官方授权原装正品</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-credit-card"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3 class="feature-title">无忧退款</h3>
+                                <p class="feature-description">7天无理由退换</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3 class="feature-title">24小时客服</h3>
+                                <p class="feature-description">专业贴心服务</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- New Arrivals with tags -->
+                <!-- Popular Products -->
+                <section class="product-section recommendation-section">
+                    <div class="recommendation-header">
+                        <h2 class="recommendation-title">人气推荐</h2>
+                        <a href="#" class="view-all">查看全部 <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                    <div class="product-grid">
+                        <div class="product-card" onclick="showProductDetail()">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="MacBook">
+                                <div class="tag-container">
+                                    <span class="product-tag hot">热门</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">笔记本电脑</div>
+                                <h3 class="product-title">全新13英寸超轻薄笔记本 高性能处理器</h3>
+                                <div class="user-highlight">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    <div class="highlight-text">"屏幕真的很出彩，色彩准确度非常高"<span class="highlight-user">- 张小明</span></div>
+                                </div>
+                                <div class="product-meta">
+                                    <div class="product-rating">
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <div class="count">(346)</div>
+                                    </div>
+                                    <div class="product-sold">已售 5283+</div>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">¥8,999</span>
+                                    <span class="original-price">¥9,599</span>
+                                    <span class="discount-percent">-6%</span>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card" onclick="showProductDetail()">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1530&q=80" alt="手机">
+                                <div class="tag-container">
+                                    <span class="product-tag sale">促销</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">智能手机</div>
+                                <h3 class="product-title">新一代旗舰智能手机 6.7英寸超清屏幕</h3>
+                                <div class="user-highlight">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    <div class="highlight-text">"拍照效果太惊艳了，夜景模式很强大"<span class="highlight-user">- 李雨欣</span></div>
+                                </div>
+                                <div class="product-meta">
+                                    <div class="product-rating">
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star-half-stroke"></i>
+                                        </div>
+                                        <div class="count">(582)</div>
+                                    </div>
+                                    <div class="product-sold">已售 8742+</div>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">¥5,999</span>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card" onclick="showProductDetail()">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1481&q=80" alt="平板电脑">
+                                <div class="tag-container">
+                                    <span class="product-tag discount">特惠</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">平板电脑</div>
+                                <h3 class="product-title">11英寸专业平板 创意设计绘画平板</h3>
+                                <div class="user-highlight">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    <div class="highlight-text">"手写笔灵敏度很高，绘画体验一流"<span class="highlight-user">- 王艺</span></div>
+                                </div>
+                                <div class="product-meta">
+                                    <div class="product-rating">
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        <div class="count">(214)</div>
+                                    </div>
+                                    <div class="product-sold">已售 3156+</div>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">¥4,299</span>
+                                    <span class="original-price">¥4,899</span>
+                                    <span class="discount-percent">-12%</span>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card" onclick="showProductDetail()">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80" alt="无线鼠标">
+                                <div class="tag-container">
+                                    <span class="product-tag hot">热门</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">电脑配件</div>
+                                <h3 class="product-title">人体工学设计无线鼠标 高精度光学传感器</h3>
+                                <div class="user-highlight">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    <div class="highlight-text">"长时间使用也不会手腕疲劳，设计很人性化"<span class="highlight-user">- 陈工</span></div>
+                                </div>
+                                <div class="product-meta">
+                                    <div class="product-rating">
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <div class="count">(178)</div>
+                                    </div>
+                                    <div class="product-sold">已售 2483+</div>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">¥299</span>
+                                    <span class="original-price">¥399</span>
+                                    <span class="discount-percent">-25%</span>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Fresh Products Section -->
                 <section class="product-section">
                     <div class="section-header">
                         <h2 class="section-title">新鲜好物</h2>
                         <a href="#" class="view-all">查看全部 <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                     <div class="product-grid">
-                        <div class="product-card">
+                        <div class="product-card" onclick="showProductDetail()">
                             <div class="product-image">
                                 <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="智能手表">
                                 <div class="tag-container">
                                     <span class="product-tag new">新品</span>
-                                    <span class="product-tag sale">热销</span>
+                                    <span class="product-tag hot">热门</span>
                                 </div>
                             </div>
                             <div class="product-info">
                                 <div class="product-category">智能穿戴</div>
-                                <h3 class="product-title">全新智能手表 Pro</h3>
-                                <div class="product-price">¥1,999</div>
+                                <h3 class="product-title">全新智能手表 Pro 2023 运动监测多功能手表</h3>
+                                <div class="product-meta">
+                                    <div class="product-rating">
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star-half-stroke"></i>
+                                        </div>
+                                        <div class="count">(245)</div>
+                                    </div>
+                                    <div class="product-sold">已售 2481+</div>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">¥1,599</span>
+                                    <span class="original-price">¥1,999</span>
+                                    <span class="discount-percent">-20%</span>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
                             </div>
                         </div>
                         <div class="product-card" onclick="showProductDetail()">
@@ -1619,95 +2913,184 @@
                             </div>
                             <div class="product-info">
                                 <div class="product-category">音频设备</div>
-                                <h3 class="product-title">高端无线降噪耳机</h3>
-                                <div class="product-price">¥899</div>
+                                <h3 class="product-title">高端无线降噪耳机 长续航音质优秀</h3>
+                                <div class="product-meta">
+                                    <div class="product-rating">
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <div class="count">(189)</div>
+                                    </div>
+                                    <div class="product-sold">已售 1764+</div>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">¥899</span>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="product-card">
+                        <div class="product-card" onclick="showProductDetail()">
                             <div class="product-image">
-                                <img src="https://images.unsplash.com/photo-1587033411391-5d9e51cce126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="智能音箱">
+                                <img src="https://images.unsplash.com/photo-1511385348-a52b4a160dc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1407&q=80" alt="智能摄像头">
                                 <div class="tag-container">
-                                    <span class="product-tag sale">限时优惠</span>
+                                    <span class="product-tag discount">特惠</span>
                                 </div>
                             </div>
                             <div class="product-info">
                                 <div class="product-category">智能家居</div>
-                                <h3 class="product-title">AI智能音箱</h3>
-                                <div class="product-price">¥459</div>
+                                <h3 class="product-title">智能监控摄像头 家庭安防高清夜视</h3>
+                                <div class="product-meta">
+                                    <div class="product-rating">
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        <div class="count">(98)</div>
+                                    </div>
+                                    <div class="product-sold">已售 926+</div>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">¥329</span>
+                                    <span class="original-price">¥399</span>
+                                    <span class="discount-percent">-18%</span>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card" onclick="showProductDetail()">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="蓝牙音箱">
+                                <div class="tag-container">
+                                    <span class="product-tag sale">促销</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">音频设备</div>
+                                <h3 class="product-title">防水便携式蓝牙音箱 户外音质佳</h3>
+                                <div class="product-meta">
+                                    <div class="product-rating">
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star-half-stroke"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        <div class="count">(124)</div>
+                                    </div>
+                                    <div class="product-sold">已售 1358+</div>
+                                </div>
+                                <div class="product-price">
+                                    <span class="current-price">¥459</span>
+                                    <span class="original-price">¥599</span>
+                                    <span class="discount-percent">-23%</span>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Popular Recommendations with enhanced product cards -->
-                <section class="product-section">
-                    <div class="section-header">
-                        <h2 class="section-title">人气推荐</h2>
-                        <a href="#" class="view-all">查看全部 <i class="fa-solid fa-arrow-right"></i></a>
+                <!-- You May Also Like - Modified as Data Stream -->
+                <section class="data-stream-section">
+                    <div class="stream-header">
+                        <h2 class="stream-title">猜你喜欢</h2>
                     </div>
-                    <div class="product-grid">
-                        <div class="enhanced-product-card">
-                            <div class="enhanced-product-image">
-                                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1384&q=80" alt="Galaxy Fit3 智能手环">
+                    <div class="stream-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="智能摄像机">
+                                <div class="tag-container">
+                                    <span class="product-tag new">新品</span>
+                                </div>
                             </div>
-                            <div class="enhanced-product-info">
-                                <h3 class="enhanced-product-title">Galaxy Fit3 智能手环</h3>
-                                <div class="shipping-note">已售出 400+</div>
-                                <div class="price-container">
-                                    <div class="enhanced-product-price">$ 498.00</div>
-                                    <div class="rating-container">
+                            <div class="product-info">
+                                <div class="product-category">智能家居</div>
+                                <h3 class="product-title">家用智能监控云台摄像头 360°旋转</h3>
+                                <div class="product-meta">
+                                    <div class="product-rating">
                                         <div class="stars">
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
-                                            <i class="fa-regular fa-star-half-stroke"></i>
+                                            <i class="fa-solid fa-star-half-stroke"></i>
                                         </div>
-                                        <span class="review-count">(20)</span>
+                                        <div class="count">(126)</div>
                                     </div>
+                                    <div class="product-sold">已售 963+</div>
                                 </div>
-                                <button class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    加入购物车
-                                </button>
+                                <div class="product-price">
+                                    <span class="current-price">¥349</span>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="enhanced-product-card">
-                            <div class="enhanced-product-image">
-                                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="Apple Watch">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1606318313647-401622b0e1f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="无线充电器">
+                                <div class="tag-container">
+                                    <span class="product-tag discount">特惠</span>
+                                </div>
                             </div>
-                            <div class="enhanced-product-info">
-                                <h3 class="enhanced-product-title">Apple Watch Series 8 GPS</h3>
-                                <div class="shipping-note">已售出 1,200+</div>
-                                <div class="price-container">
-                                    <div class="enhanced-product-price">$ 399.00</div>
-                                    <div class="rating-container">
+                            <div class="product-info">
+                                <div class="product-category">充电设备</div>
+                                <h3 class="product-title">15W快速无线充电器 多设备兼容充电</h3>
+                                <div class="product-meta">
+                                    <div class="product-rating">
                                         <div class="stars">
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star-half-stroke"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         </div>
-                                        <span class="review-count">(352)</span>
+                                        <div class="count">(93)</div>
                                     </div>
+                                    <div class="product-sold">已售 1475+</div>
                                 </div>
-                                <button class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    加入购物车
-                                </button>
+                                <div class="product-price">
+                                    <span class="current-price">¥129</span>
+                                    <span class="original-price">¥199</span>
+                                    <span class="discount-percent">-35%</span>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="enhanced-product-card">
-                            <div class="enhanced-product-image">
-                                <img src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80" alt="Xiaomi手环">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="蓝牙键盘">
+                                <div class="tag-container">
+                                    <span class="product-tag sale">促销</span>
+                                </div>
                             </div>
-                            <div class="enhanced-product-info">
-                                <h3 class="enhanced-product-title">小米智能手环 7 Pro</h3>
-                                <div class="shipping-note">已售出 3,500+</div>
-                                <div class="price-container">
-                                    <div class="enhanced-product-price">$ 289.00</div>
-                                    <div class="rating-container">
+                            <div class="product-info">
+                                <div class="product-category">电脑外设</div>
+                                <h3 class="product-title">超薄蓝牙键盘 多设备切换 长续航</h3>
+                                <div class="product-meta">
+                                    <div class="product-rating">
                                         <div class="stars">
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
@@ -1715,34 +3098,33 @@
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-regular fa-star"></i>
                                         </div>
-                                        <span class="review-count">(186)</span>
+                                        <div class="count">(87)</div>
                                     </div>
+                                    <div class="product-sold">已售 854+</div>
                                 </div>
-                                <button class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    加入购物车
-                                </button>
+                                <div class="product-price">
+                                    <span class="current-price">¥289</span>
+                                    <span class="original-price">¥349</span>
+                                    <span class="discount-percent">-17%</span>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-
-                <!-- Infinite Scroll Products -->
-                <section class="product-section">
-                    <div class="section-header">
-                        <h2 class="section-title">猜你喜欢</h2>
-                    </div>
-                    <div class="infinite-products">
-                        <div class="enhanced-product-card">
-                            <div class="enhanced-product-image">
-                                <img src="https://images.unsplash.com/photo-1546027658-7aa750153465?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="蓝牙耳机">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1601784551169-ac9f1bbde94e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="移动电源">
+                                <div class="tag-container">
+                                    <span class="product-tag hot">热门</span>
+                                </div>
                             </div>
-                            <div class="enhanced-product-info">
-                                <h3 class="enhanced-product-title">AirPods Pro 2 无线降噪耳机</h3>
-                                <div class="shipping-note">已售出 5,200+</div>
-                                <div class="price-container">
-                                    <div class="enhanced-product-price">$ 249.00</div>
-                                    <div class="rating-container">
+                            <div class="product-info">
+                                <div class="product-category">充电设备</div>
+                                <h3 class="product-title">20000mAh大容量移动电源 65W双向快充</h3>
+                                <div class="product-meta">
+                                    <div class="product-rating">
                                         <div class="stars">
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
@@ -1750,122 +3132,24 @@
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                         </div>
-                                        <span class="review-count">(523)</span>
+                                        <div class="count">(215)</div>
                                     </div>
+                                    <div class="product-sold">已售 3246+</div>
                                 </div>
-                                <button class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    加入购物车
-                                </button>
-                            </div>
-                        </div>
-                        <div class="enhanced-product-card">
-                            <div class="enhanced-product-image">
-                                <img src="https://images.unsplash.com/photo-1613742442310-db99d69a4018?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="智能手表">
-                            </div>
-                            <div class="enhanced-product-info">
-                                <h3 class="enhanced-product-title">HUAWEI WATCH GT3 Pro</h3>
-                                <div class="shipping-note">已售出 2,100+</div>
-                                <div class="price-container">
-                                    <div class="enhanced-product-price">$ 359.00</div>
-                                    <div class="rating-container">
-                                        <div class="stars">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-regular fa-star"></i>
-                                        </div>
-                                        <span class="review-count">(278)</span>
-                                    </div>
+                                <div class="product-price">
+                                    <span class="current-price">¥249</span>
+                                    <span class="original-price">¥299</span>
+                                    <span class="discount-percent">-17%</span>
                                 </div>
-                                <button class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    加入购物车
-                                </button>
-                            </div>
-                        </div>
-                        <div class="enhanced-product-card">
-                            <div class="enhanced-product-image">
-                                <img src="https://images.unsplash.com/photo-1623998021669-c69e7e33fbf3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="电子阅读器">
-                            </div>
-                            <div class="enhanced-product-info">
-                                <h3 class="enhanced-product-title">Kindle Paperwhite 电子阅读器</h3>
-                                <div class="shipping-note">已售出 3,700+</div>
-                                <div class="price-container">
-                                    <div class="enhanced-product-price">$ 159.00</div>
-                                    <div class="rating-container">
-                                        <div class="stars">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <span class="review-count">(472)</span>
-                                    </div>
+                                <div class="quick-actions">
+                                    <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                    <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
                                 </div>
-                                <button class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    加入购物车
-                                </button>
-                            </div>
-                        </div>
-                        <div class="enhanced-product-card">
-                            <div class="enhanced-product-image">
-                                <img src="https://images.unsplash.com/photo-1600086827875-a63b09533cdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="智能音箱">
-                            </div>
-                            <div class="enhanced-product-info">
-                                <h3 class="enhanced-product-title">Google Nest Audio 智能音箱</h3>
-                                <div class="shipping-note">已售出 1,500+</div>
-                                <div class="price-container">
-                                    <div class="enhanced-product-price">$ 99.00</div>
-                                    <div class="rating-container">
-                                        <div class="stars">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-regular fa-star-half-stroke"></i>
-                                        </div>
-                                        <span class="review-count">(183)</span>
-                                    </div>
-                                </div>
-                                <button class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    加入购物车
-                                </button>
-                            </div>
-                        </div>
-                        <div class="enhanced-product-card">
-                            <div class="enhanced-product-image">
-                                <img src="https://images.unsplash.com/photo-1600003263720-95b45a4035d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="无线充电器">
-                            </div>
-                            <div class="enhanced-product-info">
-                                <h3 class="enhanced-product-title">Samsung 快速无线充电板</h3>
-                                <div class="shipping-note">已售出 2,800+</div>
-                                <div class="price-container">
-                                    <div class="enhanced-product-price">$ 59.00</div>
-                                    <div class="rating-container">
-                                        <div class="stars">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-regular fa-star"></i>
-                                        </div>
-                                        <span class="review-count">(152)</span>
-                                    </div>
-                                </div>
-                                <button class="add-to-cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                    加入购物车
-                                </button>
                             </div>
                         </div>
                     </div>
                     <div class="load-more">
-                        <button class="load-more-btn">加载更多</button>
+                        <button class="load-more-btn"><div class="loading-spinner"></div>加载更多</button>
                     </div>
                 </section>
             </div>
@@ -2471,47 +3755,78 @@
         // Banner slider functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.banner-slide');
-        const dots = document.querySelectorAll('.slide-dot');
+        const dots = document.querySelectorAll('.banner-dot');
+        const slideCount = slides.length;
+        const slideWidth = 100; // 百分比
         
-        function showSlide(index) {
-            // Hide all slides
-            slides.forEach(slide => {
-                slide.style.display = 'none';
-            });
-            
-            // Remove active class from all dots
-            dots.forEach(dot => {
-                dot.classList.remove('active');
-            });
-            
-            // Show current slide and activate corresponding dot
-            slides[index].style.display = 'block';
-            dots[index].classList.add('active');
-        }
+        // 设置轮播图导航按钮事件
+        document.querySelector('.banner-prev').addEventListener('click', function() {
+            prevSlide();
+        });
         
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
+        document.querySelector('.banner-next').addEventListener('click', function() {
+            nextSlide();
+        });
         
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-        
-        // Auto advance slides every 5 seconds
-        setInterval(nextSlide, 5000);
-        
-        // Initialize first slide
-        showSlide(currentSlide);
-        
-        // Click handlers for dots
+        // 设置指示点点击事件
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                showSlide(currentSlide);
+            dot.addEventListener('click', function() {
+                goToSlide(index);
             });
         });
+        
+        // 轮播图自动播放
+        let slideInterval = setInterval(nextSlide, 5000);
+        
+        // 鼠标悬停时暂停轮播
+        const bannerSlider = document.querySelector('.banner-slider');
+        bannerSlider.addEventListener('mouseenter', function() {
+            clearInterval(slideInterval);
+        });
+        
+        bannerSlider.addEventListener('mouseleave', function() {
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+        
+        // 切换到下一张幻灯片
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slideCount;
+            updateSlider();
+        }
+        
+        // 切换到上一张幻灯片
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+            updateSlider();
+        }
+        
+        // 切换到指定幻灯片
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+        
+        // 更新幻灯片位置和状态
+        function updateSlider() {
+            // 更新幻灯片位置
+            const slideTransform = -currentSlide * slideWidth;
+            document.querySelector('.banner-slides').style.transform = `translateX(${slideTransform}%)`;
+            
+            // 更新指示点状态
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // 初始化轮播图
+        updateSlider();
+        
+        // Initialize page
+        showHomepage();
 
         // Toggle search bar visibility on mobile
         const searchIcon = document.querySelector('.search-toggle');
@@ -2523,13 +3838,463 @@
             });
         }
 
-        // Initialize page
-        showHomepage();
-
         // Add event listeners for navigation
         document.querySelector('.nav-item:nth-child(4)').addEventListener('click', showMyPage);
         document.querySelectorAll('.product-card').forEach(card => {
             card.addEventListener('click', showProductDetail);
+        });
+        
+        // 更新面包屑函数
+        function updateBreadcrumb(pathArray, currentPage) {
+            const breadcrumbContainer = document.getElementById('breadcrumb');
+            const breadcrumb = document.querySelector('.breadcrumb');
+            
+            if (!breadcrumbContainer || !breadcrumb) return;
+            
+            // 清空现有内容
+            breadcrumb.innerHTML = '';
+            
+            // 添加首页链接
+            const homeItem = document.createElement('div');
+            homeItem.className = 'breadcrumb-item';
+            // 使用javascript:void(0)防止页面刷新
+            homeItem.innerHTML = '<a href="javascript:void(0);" onclick="showHomepage();">首页</a>';
+            breadcrumb.appendChild(homeItem);
+            
+            // 添加中间层级
+            if (pathArray && pathArray.length > 0) {
+                pathArray.forEach((item, index) => {
+                    const pathItem = document.createElement('div');
+                    pathItem.className = 'breadcrumb-item';
+                    
+                    if (index === pathArray.length - 1 && !currentPage) {
+                        // 当前层级，无下一级
+                        pathItem.classList.add('active');
+                        pathItem.textContent = item;
+                    } else {
+                        // 使用javascript:void(0)防止页面刷新
+                        pathItem.innerHTML = `<a href="javascript:void(0);" onclick="showCategoryPage('${item}');">${item}</a>`;
+                    }
+                    
+                    breadcrumb.appendChild(pathItem);
+                });
+            }
+            
+            // 添加当前页面
+            if (currentPage) {
+                const currentItem = document.createElement('div');
+                currentItem.className = 'breadcrumb-item active';
+                currentItem.textContent = currentPage;
+                breadcrumb.appendChild(currentItem);
+            }
+        }
+        
+        // 显示分类页面
+        function showCategoryPage(category) {
+            // 防止事件冒泡和默认行为
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            // 隐藏其他页面
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('myPage').style.display = 'none';
+            document.getElementById('productDetail').style.display = 'block'; // 暂用商品详情页作为分类页
+            
+            // 显示面包屑
+            const breadcrumb = document.getElementById('breadcrumb');
+            breadcrumb.style.display = 'block';
+            
+            // 更新面包屑
+            updateBreadcrumb(['电子产品'], category);
+            
+            // 这里可以添加更多逻辑，如根据分类加载不同的产品列表等
+            console.log(`显示 ${category} 分类页面`);
+        }
+        
+        // 显示不同页面时更新面包屑
+        function showHomepage() {
+            // 防止事件冒泡和默认行为
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            document.getElementById('homepage').style.display = 'block';
+            document.getElementById('myPage').style.display = 'none';
+            document.getElementById('productDetail').style.display = 'none';
+            
+            // 首页不显示面包屑
+            document.getElementById('breadcrumb').style.display = 'none';
+        }
+        
+        function showMyPage() {
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('myPage').style.display = 'block';
+            document.getElementById('productDetail').style.display = 'none';
+            
+            // 显示并更新面包屑
+            document.getElementById('breadcrumb').style.display = 'block';
+            updateBreadcrumb([], '我的账户');
+        }
+        
+        function showProductDetail() {
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('myPage').style.display = 'none';
+            document.getElementById('productDetail').style.display = 'block';
+            
+            // 显示并更新面包屑
+            document.getElementById('breadcrumb').style.display = 'block';
+            updateBreadcrumb(['电子产品', '耳机音箱'], '高端无线降噪耳机');
+        }
+
+        // 产品卡片行为相关的JS代码
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化所有产品卡片的交互行为
+            initProductCards();
+            
+            // 初始化页面
+            showHomepage();
+            
+            // 初始化轮播
+            initBannerSlider();
+        });
+        
+        // 初始化产品卡片
+        function initProductCards() {
+            // 为所有产品卡片添加点击事件
+            document.querySelectorAll('.product-card').forEach(card => {
+                // 排除快速操作按钮的点击
+                card.addEventListener('click', function(e) {
+                    if (!e.target.closest('.quick-action-btn')) {
+                        // 阻止快速操作按钮的点击事件传播到卡片
+                        showProductDetail();
+                    }
+                });
+                
+                // 快速操作按钮交互
+                const quickActionBtns = card.querySelectorAll('.quick-action-btn');
+                
+                quickActionBtns.forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation(); // 阻止事件冒泡到产品卡片
+                        
+                        // 收藏按钮处理 (第一个按钮是收藏)
+                        if (this.querySelector('.fa-heart')) {
+                            this.classList.toggle('active');
+                            if (this.classList.contains('active')) {
+                                this.style.backgroundColor = '#ff5722';
+                                this.style.color = 'white';
+                                showToast('已添加到收藏');
+                            } else {
+                                this.style.backgroundColor = 'white';
+                                this.style.color = 'var(--dark-color)';
+                                showToast('已从收藏中移除');
+                            }
+                        }
+                        
+                        // 购物车按钮处理
+                        if (this.querySelector('.fa-cart-shopping')) {
+                            // 显示添加到购物车的动画效果
+                            this.classList.add('active');
+                            this.style.backgroundColor = '#4CAF50';
+                            this.style.color = 'white';
+                            showToast('已添加到购物车');
+                            
+                            // 2秒后恢复原状
+                            setTimeout(() => {
+                                this.classList.remove('active');
+                                this.style.backgroundColor = 'white';
+                                this.style.color = 'var(--dark-color)';
+                            }, 2000);
+                        }
+                    });
+                });
+            });
+        }
+        
+        // 显示提示信息
+        function showToast(message) {
+            // 检查是否已存在Toast元素
+            let toast = document.querySelector('.toast-message');
+            if (!toast) {
+                // 创建一个新的Toast元素
+                toast = document.createElement('div');
+                toast.classList.add('toast-message');
+                document.body.appendChild(toast);
+                
+                // 添加Toast样式
+                toast.style.position = 'fixed';
+                toast.style.bottom = '20px';
+                toast.style.left = '50%';
+                toast.style.transform = 'translateX(-50%)';
+                toast.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                toast.style.color = 'white';
+                toast.style.padding = '10px 20px';
+                toast.style.borderRadius = '20px';
+                toast.style.fontSize = '14px';
+                toast.style.zIndex = '1000';
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.3s ease';
+            }
+            
+            // 设置消息并显示
+            toast.textContent = message;
+            toast.style.opacity = '1';
+            
+            // 3秒后隐藏
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 3000);
+        }
+        
+        // Banner slider functionality
+        function initBannerSlider() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.banner-slide');
+            const dots = document.querySelectorAll('.banner-dot');
+            const slideCount = slides.length;
+            const slideWidth = 100; // 百分比
+            
+            // 设置轮播图导航按钮事件
+            document.querySelector('.banner-prev').addEventListener('click', function() {
+                prevSlide();
+            });
+            
+            document.querySelector('.banner-next').addEventListener('click', function() {
+                nextSlide();
+            });
+            
+            // 设置指示点点击事件
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    goToSlide(index);
+                });
+            });
+            
+            // 轮播图自动播放
+            let slideInterval = setInterval(nextSlide, 5000);
+            
+            // 鼠标悬停时暂停轮播
+            const bannerSlider = document.querySelector('.banner-slider');
+            bannerSlider.addEventListener('mouseenter', function() {
+                clearInterval(slideInterval);
+            });
+            
+            bannerSlider.addEventListener('mouseleave', function() {
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+        }
+        
+        // 猜你喜欢数据流功能
+        function initDataStream() {
+            const loadMoreBtn = document.querySelector('.load-more-btn');
+            let isLoading = false;
+            let page = 1;
+            
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    if (!isLoading) {
+                        loadMoreProducts();
+                    }
+                });
+            }
+            
+            // 监听滚动到底部自动加载更多
+            window.addEventListener('scroll', function() {
+                const loadMoreElem = document.querySelector('.load-more');
+                if (loadMoreElem) {
+                    const rect = loadMoreElem.getBoundingClientRect();
+                    // 当加载更多按钮进入视口时触发加载
+                    if (rect.top < window.innerHeight && !isLoading) {
+                        loadMoreProducts();
+                    }
+                }
+            });
+            
+            function loadMoreProducts() {
+                isLoading = true;
+                
+                // 显示加载中状态
+                const btnText = loadMoreBtn.innerHTML;
+                loadMoreBtn.innerHTML = '<div class="loading-spinner"></div>加载中...';
+                loadMoreBtn.disabled = true;
+                
+                // 模拟API请求延迟
+                setTimeout(() => {
+                    // 模拟数据
+                    const newProducts = [
+                        {
+                            image: 'https://images.unsplash.com/photo-1600003263720-95b45a4035d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+                            tag: 'discount',
+                            tagText: '特惠',
+                            category: '充电设备',
+                            title: 'Samsung 快速无线充电板 多设备充电',
+                            rating: 4,
+                            reviews: 152,
+                            sold: 2800,
+                            price: 59,
+                            originalPrice: 89,
+                            discount: 34
+                        },
+                        {
+                            image: 'https://images.unsplash.com/photo-1600086827875-a63b09533cdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+                            tag: 'new',
+                            tagText: '新品',
+                            category: '智能家居',
+                            title: 'Google Nest Audio 智能音箱 高清音质',
+                            rating: 4.5,
+                            reviews: 331,
+                            sold: 1500,
+                            price: 99,
+                            originalPrice: null,
+                            discount: null
+                        },
+                        {
+                            image: 'https://images.unsplash.com/photo-1623998021669-c69e7e33fbf3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+                            tag: 'hot',
+                            tagText: '热门',
+                            category: '电子阅读',
+                            title: 'Kindle Paperwhite 电子阅读器 护眼墨水屏',
+                            rating: 5,
+                            reviews: 472,
+                            sold: 3700,
+                            price: 159,
+                            originalPrice: 199,
+                            discount: 20
+                        },
+                        {
+                            image: 'https://images.unsplash.com/photo-1546027658-7aa750153465?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+                            tag: 'sale',
+                            tagText: '促销',
+                            category: '音频设备',
+                            title: 'AirPods Pro 2 无线降噪耳机 长续航',
+                            rating: 5,
+                            reviews: 523,
+                            sold: 5200,
+                            price: 249,
+                            originalPrice: 299,
+                            discount: 17
+                        }
+                    ];
+                    
+                    // 添加产品到网格
+                    const streamGrid = document.querySelector('.stream-grid');
+                    newProducts.forEach(product => {
+                        const card = createProductCard(product);
+                        streamGrid.appendChild(card);
+                    });
+                    
+                    // 恢复按钮状态
+                    loadMoreBtn.innerHTML = btnText;
+                    loadMoreBtn.disabled = false;
+                    isLoading = false;
+                    
+                    // 更新页码
+                    page++;
+                    
+                    // 如果加载到第3页，模拟没有更多数据
+                    if (page > 3) {
+                        loadMoreBtn.innerHTML = '没有更多产品';
+                        loadMoreBtn.disabled = true;
+                        loadMoreBtn.style.backgroundColor = '#f1f1f1';
+                        loadMoreBtn.style.color = '#999';
+                        loadMoreBtn.style.cursor = 'not-allowed';
+                    }
+                    
+                    // 重新初始化卡片交互
+                    initProductCards();
+                }, 1500);
+            }
+            
+            function createProductCard(product) {
+                // 创建星级评分HTML
+                const starsHtml = createStarsHtml(product.rating);
+                
+                // 构建折扣价格HTML
+                let priceHtml = `<span class="current-price">¥${product.price}</span>`;
+                if (product.originalPrice) {
+                    priceHtml += `
+                        <span class="original-price">¥${product.originalPrice}</span>
+                        <span class="discount-percent">-${product.discount}%</span>
+                    `;
+                }
+                
+                // 创建完整卡片HTML
+                const cardHtml = `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.title}">
+                            <div class="tag-container">
+                                <span class="product-tag ${product.tag}">${product.tagText}</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${product.category}</div>
+                            <h3 class="product-title">${product.title}</h3>
+                            <div class="product-meta">
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        ${starsHtml}
+                                    </div>
+                                    <div class="count">(${product.reviews})</div>
+                                </div>
+                                <div class="product-sold">已售 ${product.sold}+</div>
+                            </div>
+                            <div class="product-price">
+                                ${priceHtml}
+                            </div>
+                            <div class="quick-actions">
+                                <div class="quick-action-btn"><i class="fa-solid fa-heart"></i></div>
+                                <div class="quick-action-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // 创建DOM元素
+                const template = document.createElement('template');
+                template.innerHTML = cardHtml.trim();
+                return template.content.firstChild;
+            }
+            
+            function createStarsHtml(rating) {
+                let starsHtml = '';
+                
+                // 添加实心星星
+                for (let i = 1; i <= Math.floor(rating); i++) {
+                    starsHtml += '<i class="fa-solid fa-star"></i>';
+                }
+                
+                // 添加半星星（如果有小数部分）
+                if (rating % 1 >= 0.5) {
+                    starsHtml += '<i class="fa-solid fa-star-half-stroke"></i>';
+                }
+                
+                // 添加空星星
+                const emptyStars = 5 - Math.ceil(rating);
+                for (let i = 0; i < emptyStars; i++) {
+                    starsHtml += '<i class="fa-regular fa-star"></i>';
+                }
+                
+                return starsHtml;
+            }
+        }
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化所有产品卡片的交互行为
+            initProductCards();
+            
+            // 初始化页面
+            showHomepage();
+            
+            // 初始化轮播
+            initBannerSlider();
+            
+            // 初始化数据流
+            initDataStream();
         });
     </script>
 </body>
